@@ -4,7 +4,7 @@ import "../../styles/Footer.css";
 const Footer = () => {
     return (
         <footer>
-            <p>ⓒ 2025 1Dohyeon's Portfolio.</p>
+            <p>ⓒ 2025 JuCheol's Portfolio.</p>
         </footer>
     );
 };

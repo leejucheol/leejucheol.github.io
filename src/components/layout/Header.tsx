@@ -13,9 +13,9 @@ const Header = () => {
     return (
         <header className="header">
             <div className="wrapper" id="header-wrapper">
-                <Link to="https://1dohyeon.github.io/#/" className="logo">
+                <Link to="https://leejucheol.github.io/#/" className="logo">
                     {/* <img src="/dotu_text_logo_white.png" alt="DOforTU Logo" /> */}
-                    <h2>1Dohyeon</h2>
+                    <h2>Lee Jucheol</h2>
                 </Link>
                 <button className="hamburger" onClick={toggleMenu}>
                     <span></span>
@@ -30,14 +30,14 @@ const Header = () => {
                     </div>
                     <div>
                         <Link
-                            to="https://ehgusdev.tistory.com/"
+                            to="https://wncjfs.tistory.com/"
                             className={location.pathname === "/about-me" ? "active" : ""}
                         >
                             Tistory
                         </Link>
                     </div>
                     <div>
-                        <a href="https://github.com/1Dohyeon" target="_blank" rel="noopener noreferrer">
+                        <a href="https://github.com/leejucheol" target="_blank" rel="noopener noreferrer">
                             GitHub
                         </a>
                     </div>

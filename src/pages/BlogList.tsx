@@ -13,10 +13,9 @@ interface BlogMeta {
 const categoryMap: Record<string, string> = {
     ALL: "ALL",
     TULOG: "TULOG",
-    TRIPWITH: "TRIPWITH",
-    RENTEASE: "RENTEASE",
-    CoffeePricePredictor: "CoffeePricePredictor",
     DiseasePrediction: "DiseasePrediction",
+    TRIPWITH: "TRIPWITH",
+    //CoffeePricePredictor: "CoffeePricePredictor",
 };
 
 const BlogList: React.FC = () => {
@@ -43,14 +42,10 @@ const BlogList: React.FC = () => {
                 "2025.07.22 JWT vs 세션, 어떤 로그인 방식을 선택할까.md",
                 "2025.07.14 Google Auth 다중 계정 로그인 문제 해결 기록.md",
             ],
+            DiseasePrediction: ["2025.07.20 GCN은 어떻게 학습할까.md"],
             TRIPWITH: [
                 "2025.07.14 Docker를 왜 사용할까.md",
                 "2025.07.11 데이터베이스에서 인덱스(Index)는 어떻게 작동할까.md",
-            ],
-            RENTEASE: [
-                "2025.02.11 Web Socket(웹 소켓)과 HTTP.md",
-                "2024.03.17 Database, AWS.md",
-                "2024.03.12 비동기 함수(async function), Promise.md",
             ],
         };
         const cat = category || "ALL";

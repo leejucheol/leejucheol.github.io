@@ -8,22 +8,38 @@ const IntroSection = () => {
             <div className="wrapper" id="intro-wrapper">
                 <div className="intro-content">
                     <div className="main-text">
-                        <h1>Dohyeon Won</h1>
-                        {/* <h2 className="position-title">Fullstack & ML Engineer</h2> */}
-                        <h2 className="position-title">Backend Developer & ML Engineer</h2>
-                        <p className="intro-description">
-                            개발한 서비스가 세상에 나와 사용자들에게 가치를 전달하는 순간을 가장 즐거워하며, 새로운
-                            기술과 도전을 통해 성장하는 것을 즐깁니다.
-                        </p>
-                        <a href="/Dohyeon Won CV.pdf" download className="download-cv-button">
-                            Download CV
+                        <h1>Jucheol Lee</h1>
+                        <h2 className="position-title">Backend & ML Engineer</h2>
+                        <div className="intro-description">
+                            <p>도전과 모험을 좋아하는 신입 개발자 이주철입니다. </p>
+                            <p>
+                                제가 만든 서비스가 세상에 나와 사람들이 경험하고 삶에 도움이 되는 모습을 볼 때 가장 큰
+                                성취감을 느낍니다.
+                            </p>
+                            <p>
+                                이러한 목표를 계속해서 달성하기 위해 꾸준히 TypeScript, Python, SQL 등 개발에 대해
+                                공부하고 있습니다.
+                            </p>
+                        </div>
+                        <a href="이력서_cv.pdf" download className="download-cv-button">
+                            Download CV(KOR.)
+                        </a>
+                        <br />
+                        <a
+                            href="/CV_Pitt_grine.docx"
+                            download="English_CV_PittGrine.docx"
+                            className="download-cv-button"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Download CV(ENG.)
                         </a>
                     </div>
                     <div className="contact-info">
-                        <p>원도현</p>
+                        <p>이주철</p>
                         <p>
-                            <Link className="github-link" to="https://github.com/1Dohyeon">
-                                Github: Dohyeon Won
+                            <Link className="github-link" to="https://github.com/leejucheol">
+                                Github: Lee Jucheol
                             </Link>
                         </p>
                         <div className="email-container">
@@ -48,7 +64,7 @@ const IntroSection = () => {
                                     strokeLinejoin="round"
                                 />
                             </svg>
-                            <p className="email">dh1072005@gmail.com</p>
+                            <p className="email">jcllee9239@gmail.com</p>
                         </div>
 
                         <button
