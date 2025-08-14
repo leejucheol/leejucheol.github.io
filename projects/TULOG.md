@@ -6,10 +6,10 @@
 
 -   **개발 기간**: 2025.07 ~ 진행중
 -   **기술 스택**:
-    -   Next.js, NestJS, PostgreSQL, Docker, EC2, RDS, S3
+    -   NestJS, PostgreSQL, Docker, EC2, RDS, S3
 -   **프로젝트 유형**: 개인 및 팀 블로그3인 프로젝트
 -   **개발 인원**: 3인 프로젝트
--   **맡은 역할**: Backend & Frontend
+-   **맡은 역할**: Backend
 
 **PROJECT_OVERVIEW_IMAGE**
 ![tulog-main-image](https://github.com/1Dohyeon/1Dohyeon.github.io/blob/main/public/tulogMainImage.png?raw=true)
@@ -19,13 +19,12 @@
 > **GitHub Repository & Project Information URL**
 >
 > -   [SERVER Repository](https://github.com/DOforTU/tulog-server)
-> -   [UI Repository](https://github.com/DOforTU/tulog-ui)
 > -   [프로젝트 기능 설명](https://github.com/DOforTU/tulog)
 > -   [프로젝트 블로그](https://1dohyeon.github.io/#/blogs/category/TULOG)
 
 해당 프로젝트의 **기능 설명**은 [이곳](https://github.com/DOforTU/tulog) 에서 자세히 확인할 수 있습니다. 이 글은 아키텍처 구조, 개발 흐름, 기술적 고민을 기록한 **일기 형식의 회고**에 가깝습니다.
 
-또한 이 프로젝트를 개발하면서 겪은 기술적 문제, 학습한 내용 등을 외부 블로그에 꾸준히 정리하고 있습니다. 실시간 개발 흐름과 고민 과정을 기록한 글은 [프로젝트 블로그](https://1dohyeon.github.io/#/blogs/category/TULOG)에서 확인하실 수 있습니다.
+또한 이 프로젝트를 개발하면서 겪은 기술적 문제, 학습한 내용 등을 외부 블로그에 꾸준히 정리하고 있습니다. 실시간 개발 흐름과 고민 과정을 기록한 글은 [프로젝트 블로그](https://leejucheol.github.io/#/blogs/category/TULOG)에서 확인하실 수 있습니다.
 
 ## 왜 블로그라는 주제를 선택했는가?
 
@@ -45,15 +44,9 @@
 
 블로그 기능은 기본적으로 **글 작성과 수정** 등을 맡았으며, 주로 **팀 블로그 기능을 중점으로 개발**하였습니다.
 
-## 왜 Next.js와 NestJS를 선택했는가?
+**백엔드**를 처음 설계할 때 가장 중요하게 고려한 요소는 유지보수성과 확장성이었습니다. 단순한 CRUD를 넘어서, 기능이 많아지더라도 구조적으로 관리 가능해야 했기 때문에, **모듈 시스템과 의존성 주입(DI)** 을 기본으로 제공하는 NestJS를 선택했습니다. 실제로 서비스, 컨트롤러, 모듈을 분리하여 구조화하는 과정에서 NestJS의 아키텍처가 큰 도움이 되었습니다.
 
-**프론트엔드** 프레임워크는 처음에는 Vue.js로 시작했지만, 배포 후 운영을 목표로 하다 보니 SEO, SSR, 정적 사이트 생성(SSG) 등 다양한 부분을 고려해야 했습니다.
-
-**Next.js**는 이러한 요구에 딱 맞는 프레임워크였습니다. 가장 먼저 고려한 건 SEO와 초기 렌더링 속도였고, 이를 위해 서버 사이드 렌더링(SSR) 기능을 적극 활용했습니다.
-
-그리고 **백엔드**를 처음 설계할 때 가장 중요하게 고려한 요소는 유지보수성과 확장성이었습니다. 단순한 CRUD를 넘어서, 기능이 많아지더라도 구조적으로 관리 가능해야 했기 때문에, **모듈 시스템과 의존성 주입(DI)** 을 기본으로 제공하는 NestJS를 선택했습니다. 실제로 서비스, 컨트롤러, 모듈을 분리하여 구조화하는 과정에서 NestJS의 아키텍처가 큰 도움이 되었습니다.
-
-또한 TypeScript 기반이라는 점도 중요한 선택 이유였습니다. 프론트엔드(Next.js)와의 타입 통일 덕분에 DTO, 인터페이스 등을 일관되게 관리할 수 있었고, IDE 자동완성과 타입 안전성 확보에도 유리했습니다.
+또한 TypeScript 기반이라는 점도 중요한 선택 이유였습니다. 타입을 지정하여 변수를 선언하고, 디버깅을 하는데 용이하기에 협업하는데 수월하였습니다.
 
 ## 개인 블로그와 팀 블로그의 차이는 어떻게 구현했는가?
 
