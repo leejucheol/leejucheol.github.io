@@ -75,8 +75,6 @@
 
 구글이 아니더라고 로컬에서 이메일 로그인 방식으로도 회원가입이 가능합니다.
 
-<!--백엔드에서는 NestJS의 `@nestjs/passport`와 `passport-google-oauth20`을 활용하여 OAuth 인증을 처리하였고, 프론트엔드에서는 `accessToken`과 `refreshToken` 기반의 인증 흐름을 구현하였습니다.
-
 아래 시퀀스 다이어그램은 Google 로그인이 어떤 흐름으로 동작하는지 설명하는 구조입니다.
 
 ![login_logic](https://raw.githubusercontent.com/DOforTU/tulog/7944ffb2b0353fab4db63f3bfa59ef0f1e20df82/logic/login_logic.drawio.svg)
@@ -96,7 +94,6 @@
 -   HttpOnly, Secure, SameSite 속성을 활용한 쿠키 기반의 보안 처리
 -   사용자 정보를 응답 본문에 포함하지 않도록 설계하여 클라이언트 측 노출을 최소화
 -   accessToken의 짧은 유효기간과 refreshToken 기반 재발급 구조를 통한 보안 강화
--   프론트엔드에서는 Axios Interceptor를 활용하여 accessToken의 만료를 감지하고 자동으로 재요청이 가능하도록 구현
 
 결과적으로 OAuth 방식은 사용자 경험을 해치지 않으면서도 안정적인 인증 시스템을 구축하는 데 큰 도움이 되었습니다. 특히 토큰 발급 및 재발급 구조를 설계하고 구현하는 과정에서 많은 고민을 했고, 이는 좋은 경험이었다고 생각합니다.
 
