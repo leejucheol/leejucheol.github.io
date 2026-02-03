@@ -2,15 +2,15 @@
 
 ## 1. 프로젝트 개요
 
--   **개발 기간**: 2025.09 ~ 진행중
--   **기술 스택**: NestJS, PostgreSQL, Docker, GCS,
--   **프로젝트 유형**: 3인 프로젝트
--   **맡은 역할**:
-    -   Backend
+- **개발 기간**: 2025.09 ~ 진행중
+- **기술 스택**: NestJS, PostgreSQL, Docker, GCS,
+- **프로젝트 유형**: 3인 프로젝트
+- **맡은 역할**:
+    - Backend
 
 > **GitHub Repository URL**
 >
-> -   [서버 Repository](https://github.com/MJU-Capstone-2025/model-server)
+> - [서버 Repository](https://github.com/newlearnnote/server)
 
 ## 2. 프로젝트 배경
 
@@ -45,6 +45,6 @@
 
 ## 9. 성과 및 배운 점
 
--   시계열 예측 모델 및 감성 분석 모델 개발 실습
--   ML 모델을 실서비스에 통합하는 MLOps 개념 및 FastAPI 기반 서빙 경험
--   데이터 전처리 자동화와 배치 처리 개념 이해
+- 시계열 예측 모델 및 감성 분석 모델 개발 실습
+- ML 모델을 실서비스에 통합하는 MLOps 개념 및 FastAPI 기반 서빙 경험
+- 데이터 전처리 자동화와 배치 처리 개념 이해
