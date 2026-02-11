@@ -1,22 +1,22 @@
-# SILHOUETTE
+# SILUAT
 
 ## 1. 프로젝트 개요
 
--   **개발 기간**: 2025.08 ~ 2025.09 (약 3~4주)
--   **기술 스택**:
-    -   **Backend**: Node.js, NestJS
-    -   **Database**: PostgreSQL
-    -   **Storage**: GCP Cloud Storage
--   **프로젝트 유형**: 팀 프로젝트
--   **협업 인원**: 3인
--   **주로 맡은 역할**:
-    -   **Backend**:
-    -   게시물 관리 API 개발
+- **개발 기간**: 2026.01 ~ 2026. (개발중)
+- **기술 스택**:
+    - **Backend**: Node.js, NestJS
+    - **Database**: PostgreSQL
+    - **Storage**: GCP Cloud Storage
+- **프로젝트 유형**: 팀 프로젝트
+- **협업 인원**: 3인
+- **주로 맡은 역할**:
+    - **Backend**:
+    - 게시물 관리 API 개발
     -
 
 > **GitHub Repository URL**
 >
-> -   [Repository](https://github.com/1Dohyeon/RentEase)
+> - [Repository](https://github.com/1Dohyeon/RentEase)
 
 ## 2. 프로젝트 배경
 
