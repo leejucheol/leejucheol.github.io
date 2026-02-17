@@ -40,11 +40,12 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ isOpen, onClose, projectT
 
     // 프로젝트명 -> 카테고리명 매핑 (수동)
     const projectToCategory: Record<string, string> = {
-        TULOG: "TULOG",
+        Intern: "Intern",
+        NewLearnNote: "NewLearnNote",
+        SILUAT: "SILUAT",
         TRIPWITH: "TRIPWITH",
-        RENTEASE: "RENTEASE",
-        CoffeePricePredictor: "CoffeePricePredictor",
         DiseasePrediction: "DiseasePrediction",
+        TULOG: "TULOG",
     };
 
     const handleGoToBlog = () => {
@@ -97,7 +98,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ isOpen, onClose, projectT
                         }}
                     >
                         {codeMatch[1]}
-                    </code>
+                    </code>,
                 );
                 lastCodeIdx = inlineCodeRegex.lastIndex;
             }
@@ -106,10 +107,6 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ isOpen, onClose, projectT
             }
 
             // 이미지 처리 ![alt](src)
-            const imageRegex = /!\[([^\]]*)\]\(([^)]+)\)/g;
-            const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
-
-            // 이미지 먼저 처리
             let parts: (string | React.ReactElement)[] = [];
             codeParts.forEach((segment, segIdx) => {
                 if (typeof segment !== "string") {
@@ -118,7 +115,9 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ isOpen, onClose, projectT
                 }
                 let lastIndex = 0;
                 let match;
-                while ((match = imageRegex.exec(segment)) !== null) {
+                // 각 세그먼트마다 새로운 정규식 인스턴스 사용
+                const segmentImageRegex = /!\[([^\]]*)\]\(([^)]+)\)/g;
+                while ((match = segmentImageRegex.exec(segment)) !== null) {
                     if (match.index > lastIndex) {
                         parts.push(segment.slice(lastIndex, match.index));
                     }
@@ -129,9 +128,9 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ isOpen, onClose, projectT
                             alt={match[1]}
                             className="markdown-image"
                             style={{ maxWidth: "100%", height: "auto", margin: "10px 0" }}
-                        />
+                        />,
                     );
-                    lastIndex = imageRegex.lastIndex;
+                    lastIndex = segmentImageRegex.lastIndex;
                 }
                 if (lastIndex < segment.length) {
                     parts.push(segment.slice(lastIndex));
@@ -144,7 +143,9 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ isOpen, onClose, projectT
                 const linkParts: (string | React.ReactElement)[] = [];
                 let lastIdx = 0;
                 let linkMatch;
-                while ((linkMatch = linkRegex.exec(part)) !== null) {
+                // 각 파트마다 새로운 정규식 인스턴스 사용
+                const partLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+                while ((linkMatch = partLinkRegex.exec(part)) !== null) {
                     if (linkMatch.index > lastIdx) {
                         linkParts.push(part.slice(lastIdx, linkMatch.index));
                     }
@@ -157,9 +158,9 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ isOpen, onClose, projectT
                             style={{ color: "#4f8cff" }}
                         >
                             {linkMatch[1]}
-                        </a>
+                        </a>,
                     );
-                    lastIdx = linkRegex.lastIndex;
+                    lastIdx = partLinkRegex.lastIndex;
                 }
                 if (lastIdx < part.length) {
                     linkParts.push(part.slice(lastIdx));
@@ -176,7 +177,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ isOpen, onClose, projectT
                         <strong key={`bold-${idx}-${bidx}`}>{b.slice(2, -2)}</strong>
                     ) : (
                         b
-                    )
+                    ),
                 );
             });
 
@@ -199,7 +200,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ isOpen, onClose, projectT
                         {quoteBuffer.map((line, idx) => (
                             <div key={idx}>{processInlineMarkdown(line.replace(/^>\s?/, ""))}</div>
                         ))}
-                    </blockquote>
+                    </blockquote>,
                 );
                 quoteBuffer = [];
             }
@@ -221,7 +222,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ isOpen, onClose, projectT
                                 )}
                             </li>
                         ))}
-                    </ul>
+                    </ul>,
                 );
                 listBuffer = [];
             }
@@ -243,7 +244,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ isOpen, onClose, projectT
                         }}
                     >
                         <code>{codeBlockBuffer.join("\n")}</code>
-                    </pre>
+                    </pre>,
                 );
                 codeBlockBuffer = [];
             }
@@ -329,15 +330,16 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ isOpen, onClose, projectT
                                                 // 메인 리스트 항목 (앞에 공백이 없는 경우)
                                                 if (currentMainItem) {
                                                     // 이전 메인 항목을 완성
+                                                    const item = currentMainItem as MainItem;
                                                     processedItems.push(
                                                         <li
                                                             key={`main-${processedItems.length}`}
                                                             style={{ marginBottom: "8px" }}
                                                         >
-                                                            {processInlineMarkdown(currentMainItem.text)}
-                                                            {currentMainItem.subs.length > 0 && (
+                                                            {processInlineMarkdown(item.text)}
+                                                            {item.subs.length > 0 && (
                                                                 <ul style={{ marginLeft: "20px", marginTop: "4px" }}>
-                                                                    {currentMainItem.subs.map((sub, subIdx) => (
+                                                                    {item.subs.map((sub: string, subIdx: number) => (
                                                                         <li
                                                                             key={subIdx}
                                                                             style={{ marginBottom: "2px" }}
@@ -347,7 +349,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ isOpen, onClose, projectT
                                                                     ))}
                                                                 </ul>
                                                             )}
-                                                        </li>
+                                                        </li>,
                                                     );
                                                 }
                                                 currentMainItem = { text: trimmedLine.slice(2), subs: [] };
@@ -361,7 +363,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ isOpen, onClose, projectT
 
                                         // 마지막 메인 항목 처리
                                         if (currentMainItem) {
-                                            const item = currentMainItem;
+                                            const item = currentMainItem as MainItem;
                                             processedItems.push(
                                                 <li
                                                     key={`main-${processedItems.length}`}
@@ -370,14 +372,14 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ isOpen, onClose, projectT
                                                     {processInlineMarkdown(item.text)}
                                                     {item.subs.length > 0 && (
                                                         <ul style={{ marginLeft: "20px", marginTop: "4px" }}>
-                                                            {item.subs.map((sub, subIdx) => (
+                                                            {item.subs.map((sub: string, subIdx: number) => (
                                                                 <li key={subIdx} style={{ marginBottom: "2px" }}>
                                                                     {processInlineMarkdown(sub)}
                                                                 </li>
                                                             ))}
                                                         </ul>
                                                     )}
-                                                </li>
+                                                </li>,
                                             );
                                         }
 
@@ -387,7 +389,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ isOpen, onClose, projectT
                                 <div style={{ flex: "1", minWidth: "250px" }}>
                                     {processInlineMarkdown(overviewImage)}
                                 </div>
-                            </div>
+                            </div>,
                         );
                     }
                 } else if (line.trim() !== "") {

@@ -27,13 +27,13 @@ const WhatIStudySection = () => {
                                     <li>NestJS</li>
                                 </ul>
                             </div>
-                            <div className="tech-category">
+                            {/*<div className="tech-category">
                                 <p className="tech-category-title">UI</p>
                                 <ul>
                                     <li>React</li>
                                     <li>Next.js</li>
                                 </ul>
-                            </div>
+                            </div>*/}
                             <div className="tech-category">
                                 <p className="tech-category-title">DB</p>
                                 <ul>
@@ -54,9 +54,9 @@ const WhatIStudySection = () => {
 
                     <div className="activity-section">
                         <p className="activity-section-description">
-                            혼자가 아닌 함께 성장하는 것을 중요하게 생각합니다. <br />
-                            컴퓨터 과학의 기초를 팀과 함께 학습하고, 알고리즘 문제 풀이 과정을 서로 공유하며 성장하고
-                            있습니다.
+                            배움이 있기에 성장이 있다고 생각합니다. <br />
+                            컴퓨터 과학의 기초를 팀과 함께 학습하고, 알고리즘 문제 풀이 과정을 서로 공유하며 함께
+                            성장하고 있습니다.
                         </p>
                         <div className="study-grid">
                             <div className="study-card">
@@ -86,11 +86,11 @@ const WhatIStudySection = () => {
                                 </div>
                                 <h3>Dev Blog</h3>
                                 <p>
-                                    개발 중 마주친 문제와 해결 과정을 기록합니다. 글로 정리하며 이해를 깊게 만들고, 다른
-                                    사람들과 공유합니다.
+                                    개발 중 마주친 문제와 해결 과정을 기록합니다. 글로 정리하면서 상기 시켜 더 오래
+                                    기억하게 합니다, 문제와 해결을 기록하여 다른 사람들과 공유합니다.
                                 </p>
                                 <a
-                                    href="https://ehgusdev.tistory.com/"
+                                    href="https://wncjfs.tistory.com/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="repo-link"
@@ -126,7 +126,7 @@ const WhatIStudySection = () => {
                                 <h3>CS Knowledge</h3>
                                 <p>자료구조, 알고리즘, AI/ML/DL 등 컴퓨터 과학의 핵심 지식을 정기적으로 학습합니다.</p>
                                 <a
-                                    href="https://github.com/DOforTU/note-cs/tree/dohyeon"
+                                    href="https://github.com/DOforTU/note-cs/tree/jucheol"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="repo-link"
@@ -150,7 +150,7 @@ const WhatIStudySection = () => {
                                 <h3>Problem Solving</h3>
                                 <p>알고리즘 문제를 함께 풀고 다양한 풀이 방법을 공유하며 실력을 향상시킵니다. </p>
                                 <a
-                                    href="https://github.com/DOforTU/problem-solving/tree/dohyeon/dohyeon"
+                                    href="https://github.com/leejucheol/Problem-Solving"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="repo-link"

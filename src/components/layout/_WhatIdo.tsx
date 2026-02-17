@@ -3,13 +3,21 @@ import ProjectDetail from "../modal/ProjectDetail.tsx";
 import "../../styles/WhatIDo.css";
 
 const projects = [
+    // {
+    //     date: "2025.09 ~ 2025.( 약 3주 )",
+    //     title: "SILUAT: 개인 및 팀 블로그 - 3인",
+    //     desc: "개인 및 팀 블로그 서비스를 통해 일상을 기록하고 공유할 수 있는 플랫폼을 제공합니다. 백엔드 개발을 맡았으며, 사용자 인증, 글 작성 및 관리 기능을 구현했습니다. 또한, 팀원들과 협업하여 서비스 개선 작업을 진행했습니다.",
+    //     modal: "SILUAT",
+    //     role: "Backend",
+    //     isRepresentative: true,
+    // },
     {
         date: "2025.07 ~ 2025.09( 약 8주 )",
         title: "TULOG: 개인 및 팀 블로그 - 3인",
-        desc: "개인 및 팀 블로그 서비스를 통해 일상을 기록하고 공유할 수 있는 플랫폼을 제공합니다. 풀스택 개발을 맡았으며, 사용자 인증, 글 작성 및 관리 기능을 구현했습니다. 또한, 팀원들과 협업하여 UI/UX 개선 작업을 진행했습니다.",
+        desc: "개인 및 팀 블로그 서비스를 통해 일상을 기록하고 공유할 수 있는 플랫폼을 제공합니다. 백엔드 개발을 맡았으며, 사용자 인증, 글 작성 및 관리 기능을 구현했습니다. 또한, 팀원들과 협업하여 서비스 개선 작업을 진행했습니다.",
         modal: "TULOG",
         role: "Backend",
-        isRepresentative: true,
+        isRepresentative: false,
     },
     {
         date: "2025.03 ~ 2025.06( 약 14주 )",
@@ -27,14 +35,6 @@ const projects = [
         role: "Backend",
         isRepresentative: false,
     },
-    //{
-    //    date: "2024.07 ~ 2025.08 ( 약 6주 )",
-    //    title: "RentEase: C2C 렌탈 플랫폼 - 개인",
-    //    desc: "사용자 간의 물품 대여를 쉽게 연결해주는 플랫폼입니다. 직관적인 UI와 다양한 필터링 기능을 제공하여 원하는 물품을 쉽게 찾고 대여할 수 있습니다.",
-    //    modal: "RENTEASE",
-    //    role: "Backend & Frontend",
-    //    isRepresentative: false,
-    //},
 ];
 
 const WhatIDo = () => {

@@ -21,7 +21,7 @@ const IntroSection = () => {
                                 공부하고 있습니다.
                             </p>
                         </div>
-                        <a href="이력서_cv.pdf" download className="download-cv-button">
+                        <a href="이력서_CV_1.pdf" download className="download-cv-button">
                             Download CV(KOR.)
                         </a>
                         <br />

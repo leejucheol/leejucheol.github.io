@@ -4,12 +4,28 @@ import "../../styles/WhatIDo.css";
 
 const projects = [
     {
-        date: "2025.07 ~ 진행중",
-        title: "TULOG: 개인 및 팀 블로그 - 3인",
-        desc: "개인 및 팀 블로그 서비스를 통해 일상을 기록하고 공유할 수 있는 플랫폼을 제공합니다. 서비스 운영을 목표로 진행하는 프로젝트입니다. 사용자 인증, 글 작성 및 관리 기능을 구현했습니다. 또한, 팀원들과 협업하여 UI/UX 개선 작업을 진행했습니다.",
-        modal: "TULOG",
+        date: "2025.09 ~ 2025.( 진행중 )",
+        title: "NewLearnNote: AI와 집단지성 기반 지식 관리 및 노트 앱 - 3인",
+        desc: "사용자의 학습 효율을 극대화하는 AI와 집단지성 기반 지식 관리 및 노트 앱을 제공합니다. 백엔드 개발을 맡았으며, Library 관리, 사용자 맞춤형 추천 기능 등을 구현했습니다. 또한, 팀원들과 협업하여 양방향적 지식 네트워크 작업을 진행했습니다.",
+        modal: "NewLearnNote",
         role: "Backend",
         isRepresentative: true,
+    },
+    // {
+    //     date: "2025.09 ~ 2025.( 약 3주 )",
+    //     title: "SILUAT: 개인 및 팀 블로그 - 3인",
+    //     desc: "기존 소셜 미디어의 숫자 중심 경쟁 문화에서 벗어나, 사용자가 오늘 한 일을 사진이나 15초 이내 짧은 영상으로 하루 최대 2번만 공유할 수 있도록 제한했습니다. TODO 기능과 연계하여 일정 관리와 일상 기록을 자연스럽게 통합한 소셜 플랫폼입니다.",
+    //     modal: "SILUAT",
+    //     role: "Backend",
+    //     isRepresentative: false,
+    // },
+    {
+        date: "2025.07 ~ 2025.09( 약 8주 )",
+        title: "TULOG: 개인 및 팀 블로그 - 3인",
+        desc: "개인 및 팀 블로그 서비스를 통해 일상을 기록하고 공유할 수 있는 플랫폼을 제공합니다. 백엔드 개발을 맡았으며, 사용자 인증, 글 작성 및 관리 기능을 구현했습니다. 또한, 팀원들과 협업하여 서비스 개선 작업을 진행했습니다.",
+        modal: "TULOG",
+        role: "Backend",
+        isRepresentative: false,
     },
     {
         date: "2025.03 ~ 2025.06( 약 14주 | 재개발 예정 )",
@@ -56,9 +72,9 @@ const WhatIDo = () => {
             <div className="wrapper" id="what-i-do-wrapper">
                 <h2 className="what-i-do-section-title"> What I Do</h2>
                 <p className="section-description">
-                    이곳은 제가 수행한 프로젝트와 역할에 대한 설명입니다.
+                    제가 수행한 프로젝트와 역할과 기능 대한 설명입니다.
                     <br />
-                    프로젝트를 진행하면서 겪은 문제와 해결 과정을 블로그에 기록하고 공유합니다.
+                    프로젝트를 진행하면서 사용한 도구와 개선점을 기록하고 있습니다.
                 </p>
 
                 <div className="timeline-wrapper">
@@ -95,17 +111,19 @@ const WhatIDo = () => {
                             </div>
                         </div>
                     ))}
-                    <div style={{ textAlign: "center", marginTop: "20px" }}>
-                        {!showAll ? (
-                            <button className="project-more-or-hide-button" onClick={() => setShowAll(true)}>
-                                더보기
-                            </button>
-                        ) : (
-                            <button className="project-more-or-hide-button" onClick={() => setShowAll(false)}>
-                                숨기기
-                            </button>
-                        )}
-                    </div>
+                    {
+                        <div style={{ textAlign: "center", marginTop: "20px" }}>
+                            {!showAll ? (
+                                <button className="project-more-or-hide-button" onClick={() => setShowAll(true)}>
+                                    더보기
+                                </button>
+                            ) : (
+                                <button className="project-more-or-hide-button" onClick={() => setShowAll(false)}>
+                                    숨기기
+                                </button>
+                            )}
+                        </div>
+                    }
                     <ProjectDetail isOpen={modalOpen} onClose={closeModal} projectTitle={selectedProjectTitle} />
                 </div>
             </div>

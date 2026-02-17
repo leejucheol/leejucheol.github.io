@@ -1,5 +1,5 @@
 {
-    "homepage": "https://1Dohyeon.github.io",
+    "homepage": "https://leejucheol.github.io",
     "name": "my-blog",
     "version": "0.1.0",
     "private": true,
@@ -43,6 +43,7 @@
         ]
     },
     "devDependencies": {
+        "@types/react-dom": "^19.2.3",
         "gh-pages": "^6.3.0"
     }
 }

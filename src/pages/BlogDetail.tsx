@@ -54,8 +54,8 @@ const BlogDetail: React.FC = () => {
             }
 
             // 이미지
-            const imageRegex = /!\[([^\]]*)\]\(([^)]+)\)/g;
-            const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+            //const imageRegex = /!\[([^\]]*)\]\(([^)]+)\)/g;
+            //const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
             let parts: (string | React.ReactElement)[] = [];
             codeParts.forEach((segment, segIdx) => {
                 if (typeof segment !== "string") {
@@ -64,7 +64,9 @@ const BlogDetail: React.FC = () => {
                 }
                 let lastIndex = 0;
                 let match;
-                while ((match = imageRegex.exec(segment)) !== null) {
+                // 각 세그먼트마다 새로운 정규식 인스턴스 사용
+                const segmentImageRegex = /!\[([^\]]*)\]\(([^)]+)\)/g;
+                while ((match = segmentImageRegex.exec(segment)) !== null) {
                     if (match.index > lastIndex) {
                         parts.push(segment.slice(lastIndex, match.index));
                     }
@@ -77,7 +79,7 @@ const BlogDetail: React.FC = () => {
                             style={{ maxWidth: "100%", height: "auto", margin: "10px 0" }}
                         />
                     );
-                    lastIndex = imageRegex.lastIndex;
+                    lastIndex = segmentImageRegex.lastIndex;
                 }
                 if (lastIndex < segment.length) {
                     parts.push(segment.slice(lastIndex));
@@ -89,7 +91,9 @@ const BlogDetail: React.FC = () => {
                 const linkParts: (string | React.ReactElement)[] = [];
                 let lastIdx = 0;
                 let linkMatch;
-                while ((linkMatch = linkRegex.exec(part)) !== null) {
+                // 각 파트마다 새로운 정규식 인스턴스 사용
+                const partLinkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+                while ((linkMatch = partLinkRegex.exec(part)) !== null) {
                     if (linkMatch.index > lastIdx) {
                         linkParts.push(part.slice(lastIdx, linkMatch.index));
                     }
@@ -104,7 +108,7 @@ const BlogDetail: React.FC = () => {
                             {linkMatch[1]}
                         </a>
                     );
-                    lastIdx = linkMatch.lastIndex;
+                    lastIdx = partLinkRegex.lastIndex;
                 }
                 if (lastIdx < part.length) {
                     linkParts.push(part.slice(lastIdx));
